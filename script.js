@@ -14,7 +14,7 @@ let shuffleOrder = () => {
     order[order.length] = colorOrder;
     clickerOrder = [];
 
-    for(let i in order) {
+    for (let i in order) {
         let elementColor = createColorElement(order[i]);
         lightColor(elementColor, Number(i) + 1);
     }
@@ -30,7 +30,7 @@ let lightColor = (element, number) => {
     }, number - 250);
     setTimeout(() => {
         element.classList.remove('selected');
-    });
+    }, number);
 };
 
 
@@ -38,8 +38,8 @@ let lightColor = (element, number) => {
 
 
 let checkOrder = () => {
-    for(let i in clickerOrder) {
-        if(clickerOrder[i] != order[i]) {
+    for (let i in clickerOrder) {
+        if (clickerOrder[i] != order[i]) {
             loseGame();
             break
         }
@@ -62,16 +62,16 @@ let click = (color) => {
 
 
 let createColorElement = (color) => {
-    if(color == 0) {
+    if (color == 0) {
         return blue;
     }
-    else if(color == 1) {
+    else if (color == 1) {
         return yellow;
     }
-    else if(color == 2) {
+    else if (color == 2) {
         return red;
     }
-    else if(color == 3) {
+    else if (color == 3) {
         return green;
     }
 };
